@@ -98,3 +98,28 @@ console.table(nuevo_articulo);
 
 const base_de_datos = [];       
 nuevo_articulo.agregar();
+
+
+// let nombre_p = prompt("Ingrese nombre");
+// let apellido_p = prompt("Ingrese apellido");
+// let edad_p = prompt("Ingrese su edad");
+
+// class Persona {
+//     constructor (nombre, apellido, edad){
+//         this.nombre = nombre;
+//         this.apellido = apellido;
+//         this.edad = edad;
+//     }
+//     insertar(){
+//         participantes.push(persona1);
+//         console.log(participantes);
+//     }
+// }
+
+// const persona1 = new Persona(nombre_p, apellido_p, edad_p)
+// console.table(persona1);
+
+// const participantes = [];
+
+
+
