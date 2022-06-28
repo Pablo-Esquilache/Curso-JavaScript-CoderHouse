@@ -73,7 +73,7 @@ do {
 precioProducto(precioInicial,ganancia)*/
 
 //---------------------------------------------------------------------------------------------------------------
-
+/*
 let seccion_art = prompt("Elija en que seccion ingresara su articulo. Las opciones son limpieza, bazar, almacen y bebida")
 let nombre_art = prompt("Ingrese el nombre del articulo")
 let precio_art = parseFloat(prompt("Ingrese el precio del articulo"))
@@ -94,32 +94,32 @@ class Articulo{
 }
 
 nuevo_articulo = new Articulo(seccion_art, nombre_art, precio_art, stock_art);
-console.table(nuevo_articulo);
+console.log(nuevo_articulo);
 
 const base_de_datos = [];       
 nuevo_articulo.agregar();
+*/
 
 
-// let nombre_p = prompt("Ingrese nombre");
-// let apellido_p = prompt("Ingrese apellido");
-// let edad_p = prompt("Ingrese su edad");
+const base_datos = [];
+let cant_art = 5;
 
-// class Persona {
-//     constructor (nombre, apellido, edad){
-//         this.nombre = nombre;
-//         this.apellido = apellido;
-//         this.edad = edad;
-//     }
-//     insertar(){
-//         participantes.push(persona1);
-//         console.log(participantes);
-//     }
-// }
+class Articulo {
+    constructor (producto, precio, stock) {
+        this.producto = producto;
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
 
-// const persona1 = new Persona(nombre_p, apellido_p, edad_p)
-// console.table(persona1);
+do {
+    let nombre_pro = prompt("Nombre producto");
+    let precio_pro = parseFloat(prompt("Precio producto"));
+    let stock_pro = parseInt(prompt("Stock producto"));
+    const prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
+    base_datos.push(prodcuto1);
+}
+while (base_datos.length != cant_art);
 
-// const participantes = [];
-
-
+console.log(base_datos);
 
