@@ -99,7 +99,8 @@ console.log(nuevo_articulo);
 const base_de_datos = [];       
 nuevo_articulo.agregar();
 */
-
+//----------------------------------------------------------------------------------------------------------
+//Primer entrega Proyecto Final
 
 const base_datos = [];
 let cant_art = 5;
@@ -113,7 +114,7 @@ class Articulo {
 }
 
 do {
-    let nombre_pro = prompt("Nombre producto");
+    let nombre_pro = prompt("Nombre producto").toLocaleLowerCase();
     let precio_pro = parseFloat(prompt("Precio producto"));
     let stock_pro = parseInt(prompt("Stock producto"));
     const prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
@@ -123,3 +124,13 @@ while (base_datos.length != cant_art);
 
 console.log(base_datos);
 
+// let buscar_nombre = prompt("Ingrese el nombre del producto a buscar").toLocaleLowerCase();
+
+// const buscar = base_datos.find((articulo) => articulo.producto === buscar_nombre);
+// console.log(buscar);
+
+// const stock_productos = base_datos.map(stock => stock.stock);
+// console.log(stock_productos);
+
+base_datos.sort((a,b) => a.stock - b.stock);
+console.log(base_datos);
