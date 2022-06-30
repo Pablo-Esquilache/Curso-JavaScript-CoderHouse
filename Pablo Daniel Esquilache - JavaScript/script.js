@@ -101,36 +101,47 @@ nuevo_articulo.agregar();
 */
 //----------------------------------------------------------------------------------------------------------
 //Primer entrega Proyecto Final
-
+                    //Declaracion de arrays y variables
 const base_datos = [];
 let cant_art = 5;
-
+                    //Aplicacion de class para crear objetos
 class Articulo {
-    constructor (producto, precio, stock) {
+    constructor (seccion, producto, precio, stock) {
+        this.seccion = seccion;
         this.producto = producto;
         this.precio = precio;
         this.stock = stock;
     }
 }
-
+                    //Incorporar objetos al array
 do {
     let nombre_pro = prompt("Nombre producto").toLocaleLowerCase();
+    let seccion_pro = prompt("Ingrese la seccion a la que pertenece el producto").toLocaleLowerCase();
     let precio_pro = parseFloat(prompt("Precio producto"));
     let stock_pro = parseInt(prompt("Stock producto"));
-    const prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
+    const prodcuto1 = new Articulo (seccion_pro, nombre_pro, precio_pro, stock_pro);
     base_datos.push(prodcuto1);
 }
 while (base_datos.length != cant_art);
-
+                    //Mostrar array con objetos
 console.log(base_datos);
-
-// let buscar_nombre = prompt("Ingrese el nombre del producto a buscar").toLocaleLowerCase();
-
-// const buscar = base_datos.find((articulo) => articulo.producto === buscar_nombre);
-// console.log(buscar);
-
-// const stock_productos = base_datos.map(stock => stock.stock);
+                    //Aplicando el metodo sort (Ordenando alfabeticamente la seccion de lo productos)
+// const stock_productos = base_datos.sort((a,b) => a.producto - b.producto);
 // console.log(stock_productos);
+base_datos.sort((a,b)=> {
+    if (a.seccion > b.seccion){
+        return 1;
+    }
+    if (a.seccion < b.seccion){
+        return -1;
+    }
+    return 0;
+}
+)
+                    //Aplicando el metodo find
+let buscar_nombre = prompt("Ingrese el nombre del producto a buscar").toLocaleLowerCase();
+const buscar = base_datos.find((articulo) => articulo.producto === buscar_nombre);
+console.log(buscar);
 
-base_datos.sort((a,b) => a.stock - b.stock);
-console.log(base_datos);
+
+
