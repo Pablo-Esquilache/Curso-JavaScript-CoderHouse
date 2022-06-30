@@ -101,6 +101,7 @@ nuevo_articulo.agregar();
 */
 //----------------------------------------------------------------------------------------------------------
 //Primer entrega Proyecto Final
+/*
                     //Declaracion de arrays y variables
 const base_datos = [];
 let cant_art = 5;
@@ -142,6 +143,42 @@ base_datos.sort((a,b)=> {
 let buscar_nombre = prompt("Ingrese el nombre del producto a buscar").toLocaleLowerCase();
 const buscar = base_datos.find((articulo) => articulo.producto === buscar_nombre);
 console.log(buscar);
+*/
+//-----------------------------------------------------------------------------------------------------------
+
+const base_datos = [];
+let cant_art = 3;
+                    
+class Articulo {
+    constructor (producto, precio, stock) {
+        this.producto = producto;
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
+
+do {
+    let nombre_pro = prompt("Nombre producto").toLocaleLowerCase();
+    let precio_pro = parseFloat(prompt("Precio producto"));
+    let stock_pro = parseInt(prompt("Stock producto"));
+    const prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
+    base_datos.push(prodcuto1);
+}
+while (base_datos.length != cant_art);
+               
+console.log(base_datos);
+
+for (const prodcuto of base_datos) {
+    let pantalla = document.createElement("div");
+    pantalla.innerHTML =   `<h2>${prodcuto.producto}</h2>
+                            <p>${prodcuto.precio}</p>
+                            <p>${prodcuto.stock}</p>`
+    document.body.appendChild(pantalla);
+
+}
+
+
+
 
 
 
