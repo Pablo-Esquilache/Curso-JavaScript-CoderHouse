@@ -104,7 +104,7 @@ nuevo_articulo.agregar();
 /*
                     //Declaracion de arrays y variables
 const base_datos = [];
-let cant_art = 5;
+let cant_art = 3;
                     //Aplicacion de class para crear objetos
 class Articulo {
     constructor (seccion, producto, precio, stock) {
@@ -145,7 +145,8 @@ const buscar = base_datos.find((articulo) => articulo.producto === buscar_nombre
 console.log(buscar);
 */
 //-----------------------------------------------------------------------------------------------------------
-
+//Segundo desafio complementario
+/*
 const base_datos = [];
 let cant_art = 3;
                     
@@ -174,8 +175,9 @@ for (const prodcuto of base_datos) {
                             <p>${prodcuto.precio}</p>
                             <p>${prodcuto.stock}</p>`
     document.body.appendChild(pantalla);
-
 }
+*/
+//-------------------------------------------------------------------------------------------------------------
 
 
 
