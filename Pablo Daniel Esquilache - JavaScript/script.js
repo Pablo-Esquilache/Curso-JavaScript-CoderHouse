@@ -169,17 +169,76 @@ while (base_datos.length != cant_art);
                
 console.log(base_datos);
 
-for (const prodcuto of base_datos) {
+for (const producto of base_datos) {
     let pantalla = document.createElement("div");
-    pantalla.innerHTML =   `<h2>${prodcuto.producto}</h2>
-                            <p>${prodcuto.precio}</p>
-                            <p>${prodcuto.stock}</p>`
-    document.body.appendChild(pantalla);
+    pantalla.innerHTML =   `<h2>${producto.producto}</h2>
+                            <p>${producto.precio}</p>
+                            <p>${producto.stock}</p>`
+    add .document.body.appendChild(pantalla);
 }
 */
 //-------------------------------------------------------------------------------------------------------------
 
+// class Articulo {
+//     constructor (producto, precio, stock) {
+//         this.producto = producto;
+//         this.precio = precio;
+//         this.stock = stock;
+//     }
+// }
 
+// const formulario = document.getElementById('formulario_carga')
+// const base_datos = [];
+
+// formulario.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     let nombre_pro = (document.getElementById('nombre_producto').value);
+//     let precio_pro = (document.getElementById('precio_producto').value);
+//     let stock_pro = (document.getElementById('stock_producto').value);
+//     prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
+//     base_datos.push(prodcuto1);
+//     formulario.reset();
+// })
+
+// for (const producto of base_datos) {
+//     let pantalla = document.createElement("div");
+//     pantalla.innerHTML =   `<h2>${producto.producto}</h2>
+//                             <p>${producto.precio}</p>
+//                             <p>${producto.stock}</p>`
+//     add .document.body.appendChild(pantalla);
+// }
+
+
+
+
+// let boton = document.getElementById('boton_carga')
+// boton.addEventListener('click', cargar_datos)
+// function cargar_datos(){
+//     class Articulo {
+//         constructor (producto, precio, stock) {
+//             this.producto = producto;
+//             this.precio = precio;
+//             this.stock = stock;
+//         }
+//     }
+//     let nombre_pro = (document.getElementById('nombre_producto').value);
+//     let precio_pro = (document.getElementById('precio_producto').value);
+//     let stock_pro = (document.getElementById('stock_producto').value);
+
+//     prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
+
+//     agregar()
+// }
+
+// const base_datos = [];
+// function agregar(){
+//     base_datos.push(prodcuto1);
+//     let pantalla = document.createElement("div");
+//     pantalla.innerHTML =   `<h2>${producto.producto}</h2>
+//                             <p>${producto.precio}</p>
+//                             <p>${producto.stock}</p>`
+//     add .document.body.appendChild(pantalla);
+// }
 
 
 
