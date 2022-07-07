@@ -3,3 +3,8 @@
     margin: 5px;
     width: 150px;
 }
+
+.div_productos {
+    display: flex;
+    flex-direction: row;
+}

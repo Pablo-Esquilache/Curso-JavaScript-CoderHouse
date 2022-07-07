@@ -178,68 +178,43 @@ for (const producto of base_datos) {
 }
 */
 //-------------------------------------------------------------------------------------------------------------
+//Desafio incorparar objetos al DOM
 
-// class Articulo {
-//     constructor (producto, precio, stock) {
-//         this.producto = producto;
-//         this.precio = precio;
-//         this.stock = stock;
-//     }
-// }
+const boton = document.getElementById('formulario_carga');
 
-// const formulario = document.getElementById('formulario_carga')
-// const base_datos = [];
+const div_producto = document.getElementById('productos')
 
-// formulario.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     let nombre_pro = (document.getElementById('nombre_producto').value);
-//     let precio_pro = (document.getElementById('precio_producto').value);
-//     let stock_pro = (document.getElementById('stock_producto').value);
-//     prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
-//     base_datos.push(prodcuto1);
-//     formulario.reset();
-// })
+const base_datos = [];
 
-// for (const producto of base_datos) {
-//     let pantalla = document.createElement("div");
-//     pantalla.innerHTML =   `<h2>${producto.producto}</h2>
-//                             <p>${producto.precio}</p>
-//                             <p>${producto.stock}</p>`
-//     add .document.body.appendChild(pantalla);
-// }
+class Articulo {
+    constructor (producto, precio, stock) {
+        this.producto = producto;
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
 
+boton.addEventListener('submit', (e) => {  
+    e.preventDefault()      
 
+    let nombre_art = document.getElementById('nombre_producto').value;
+    let precio_art = document.getElementById('precio_producto').value;
+    let stock_art = document.getElementById('stock_producto').value;
 
+    const producto1 = new Articulo (nombre_art, precio_art, stock_art);
 
-// let boton = document.getElementById('boton_carga')
-// boton.addEventListener('click', cargar_datos)
-// function cargar_datos(){
-//     class Articulo {
-//         constructor (producto, precio, stock) {
-//             this.producto = producto;
-//             this.precio = precio;
-//             this.stock = stock;
-//         }
-//     }
-//     let nombre_pro = (document.getElementById('nombre_producto').value);
-//     let precio_pro = (document.getElementById('precio_producto').value);
-//     let stock_pro = (document.getElementById('stock_producto').value);
+    base_datos.push(producto1)
 
-//     prodcuto1 = new Articulo (nombre_pro, precio_pro, stock_pro);
+    div_producto.innerHTML = " "
 
-//     agregar()
-// }
-
-// const base_datos = [];
-// function agregar(){
-//     base_datos.push(prodcuto1);
-//     let pantalla = document.createElement("div");
-//     pantalla.innerHTML =   `<h2>${producto.producto}</h2>
-//                             <p>${producto.precio}</p>
-//                             <p>${producto.stock}</p>`
-//     add .document.body.appendChild(pantalla);
-// }
-
-
+    for (const producto of base_datos) {
+        let pantalla = document.createElement("div");
+        pantalla.innerHTML =   `<h2>${producto.producto}</h2>
+                                <p>${producto.precio}</p>
+                                <p>${producto.stock}</p>`
+        div_producto.appendChild(pantalla);}
+        
+        formulario_carga.reset()
+})
 
 
