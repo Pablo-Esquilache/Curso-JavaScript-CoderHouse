@@ -179,7 +179,7 @@ for (const producto of base_datos) {
 */
 //-------------------------------------------------------------------------------------------------------------
 //Desafio incorparar objetos al DOM
-/*
+
 const boton = document.getElementById('formulario_carga');
 
 const div_producto = document.getElementById('productos')
@@ -216,7 +216,6 @@ boton.addEventListener('submit', (e) => {
         
         formulario_carga.reset()
 })
-*/
 //------------------------------------------------------------------------------------------------------------
 
 
