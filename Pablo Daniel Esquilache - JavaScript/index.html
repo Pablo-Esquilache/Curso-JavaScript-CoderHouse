@@ -10,15 +10,16 @@
 <body>
     <h1>CODERHOUSE - JavaScript</h1>
     <div class="formulario">
-        <form id="formulario_carga">
+        <form id="formulario_carga" class="formulario_carga">
             <p>Nombre del Producto</p> <br>
             <input type="text" id="nombre_producto"><br>
             <p>Precio del Producto</p> <br>
             <input type="number" id="precio_producto"><br>
             <p>Stock del producto</p> <br>
             <input type="number" id="stock_producto"><br>
-            <button type="submit" id="boton_carga">Cargar datos</button>
+            <input type="submit" id="boton_carga" value="Cargar datos">
         </form>
+        <input type="button" class="ordenar" value="Ordenar Alfabeticamente">
     </div>
     <div id="productos" class="div_productos"></div>
 <script src="script.js"></script>

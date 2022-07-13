@@ -198,8 +198,8 @@ boton.addEventListener('submit', (e) => {
     e.preventDefault()      
 
     let nombre_art = document.getElementById('nombre_producto').value;
-    let precio_art = document.getElementById('precio_producto').value;
-    let stock_art = document.getElementById('stock_producto').value;
+    let precio_art = parseFloat(document.getElementById('precio_producto').value);
+    let stock_art = parseInt(document.getElementById('stock_producto').value);
 
     const producto1 = new Articulo (nombre_art, precio_art, stock_art);
 
@@ -209,12 +209,28 @@ boton.addEventListener('submit', (e) => {
 
     for (const producto of base_datos) {
         let pantalla = document.createElement("div");
+        pantalla.classList.add('div_articuulo')
         pantalla.innerHTML =   `<h2>${producto.producto}</h2>
                                 <p>${producto.precio}</p>
                                 <p>${producto.stock}</p>`
         div_producto.appendChild(pantalla);}
         
         formulario_carga.reset()
+})
+
+const ordenar =  document.getElementsByClassName('ordenar')
+
+ordenar.addEventListener('click', () => {
+    base_datos.sort((a,b)=> {
+        if (a.producto > b.producto){
+            return 1;
+        }
+        if (a.producto < b.producto){
+            return -1;
+        }
+        return 0;
+    }
+    )
 })
 //------------------------------------------------------------------------------------------------------------
 
