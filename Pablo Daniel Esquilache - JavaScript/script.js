@@ -216,12 +216,15 @@ boton.addEventListener('submit', (e) => {
         div_producto.appendChild(pantalla);}
         
         formulario_carga.reset()
-})
+        })
 
-const ordenar =  document.getElementsByClassName('ordenar')
+
+const ordenar = document.getElementsByClassName('ordenar');
 
 ordenar.addEventListener('click', () => {
-    base_datos.sort((a,b)=> {
+    const nueva_base_datos = base_datos.map((user) => user.producto, user.precio, user.stock);
+
+    nueva_base_datos.sort((a,b)=> {
         if (a.producto > b.producto){
             return 1;
         }
@@ -229,9 +232,23 @@ ordenar.addEventListener('click', () => {
             return -1;
         }
         return 0;
-    }
-    )
-})
+    })
+
+    div_producto.innerHTML = " "    
+
+    for (const producto of nueva_base_datos) {
+        let pantalla = document.createElement("div");
+        pantalla.classList.add('div_articuulo')
+        pantalla.innerHTML =   `<h2>${producto.producto}</h2>
+                                <p>${producto.precio}</p>
+                                <p>${producto.stock}</p>`
+        div_producto.appendChild(pantalla);}
+        
+        formulario_carga.reset()
+
+    })
+        
+    
 //------------------------------------------------------------------------------------------------------------
 
 
