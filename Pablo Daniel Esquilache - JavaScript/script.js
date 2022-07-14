@@ -217,12 +217,17 @@ boton.addEventListener('submit', (e) => {
         
         formulario_carga.reset()
         })
-
-
+        
 const ordenar = document.getElementsByClassName('ordenar');
 
 ordenar.addEventListener('click', () => {
-    const nueva_base_datos = base_datos.map((user) => user.producto, user.precio, user.stock);
+    const nueva_base_datos = base_datos.map((user) => {
+        return {
+            Producto: user.producto, 
+            Precio: user.precio, 
+            Stock: user.stock
+        }
+    });
 
     nueva_base_datos.sort((a,b)=> {
         if (a.producto > b.producto){
