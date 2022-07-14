@@ -179,7 +179,7 @@ for (const producto of base_datos) {
 */
 //-------------------------------------------------------------------------------------------------------------
 //Desafio incorparar objetos al DOM
-
+/*
 const boton = document.getElementById('formulario_carga');
 
 const div_producto = document.getElementById('productos')
@@ -217,10 +217,69 @@ boton.addEventListener('submit', (e) => {
         
         formulario_carga.reset()
         })
-        
+        */
+//------------------------------------------------------------------------------------------------------------
+
+class Articulo {
+    constructor (producto, precio, stock) {
+        this.producto = producto;
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
+
+let base_datos = [];
+
+if(localStorage.getItem('base_datos_articulos')){
+    base_datos = JSON.parse(localStorage.getItem('base_datos_articulos'))
+}
+else {
+    localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
+}
+
+const boton = document.getElementById('formulario_carga')
+const div_producto = document.getElementById('productos')
+
+boton.addEventListener ('submit', (e) => {  
+    e.preventDefault()      
+
+    let nombre_art = document.getElementById('nombre_producto').value;
+    let precio_art = parseFloat(document.getElementById('precio_producto').value);
+    let stock_art = parseInt(document.getElementById('stock_producto').value);
+
+    const producto1 = new Articulo (nombre_art, precio_art, stock_art);
+
+    base_datos.push(producto1)
+
+    localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
+
+    div_producto.innerHTML = " "
+
+    base_datos.forEach((producto,indice) => {
+        div_producto.innerHTML +=   `<div class="div_articulo" id="producto${indice}">
+                                        <h2>${producto.producto}</h2>
+                                        <p>${producto.precio}</p>
+                                        <p>${producto.stock}</p>
+                                        <input type="button" value="Eliminar" id="eliminar">
+                                    </div>`
+
+    formulario_carga.reset()
+    })
+
+    base_datos.forEach((producto, indice) => {
+            btn_eliminar = document.getElementById('eliminar')
+            btn_eliminar.addEventListener('click', () => {
+            document.getElementById('producto${indice}').remove()
+            base_datos.splice(indice, 1)
+            localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
+            alert('${producto.producto} eliminado')
+        })
+    })
+})
+/*
 const ordenar = document.getElementsByClassName('ordenar');
 
-ordenar.addEventListener('click', () => {
+ordenar.addEventListener('click', () =>{
     const nueva_base_datos = base_datos.map((user) => {
         return {
             Producto: user.producto, 
@@ -250,10 +309,6 @@ ordenar.addEventListener('click', () => {
         div_producto.appendChild(pantalla);}
         
         formulario_carga.reset()
-
     })
-        
-    
-//------------------------------------------------------------------------------------------------------------
-
-
+})
+*/

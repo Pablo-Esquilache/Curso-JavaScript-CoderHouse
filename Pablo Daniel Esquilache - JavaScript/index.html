@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>Document</title>
+    <title>CODERHOUSE - JavaScript</title>
 </head>
 <body>
     <h1>CODERHOUSE - JavaScript</h1>
     <div class="formulario">
         <form id="formulario_carga" class="formulario_carga">
-            <p>Nombre del Producto</p> <br>
-            <input type="text" id="nombre_producto"><br>
-            <p>Precio del Producto</p> <br>
-            <input type="number" id="precio_producto"><br>
-            <p>Stock del producto</p> <br>
+            <h4>Nombre del Producto</h4> <br>
+            <input type="text" id="nombre_producto">
+            <h4>Precio del Producto</h4> <br>
+            <input type="number" id="precio_producto">
+            <h4>Stock del producto</h4> <br>
             <input type="number" id="stock_producto"><br>
-            <input type="submit" id="boton_carga" value="Cargar datos">
+            <input type="submit" id="boton_carga" class="btn" value="Cargar datos">
         </form>
-        <input type="button" class="ordenar" value="Ordenar Alfabeticamente">
     </div>
+    <!-- <div class="btn_ordenar">
+        <input type="button" class="ordenar" value="Ordenar Alfabeticamente">
+    </div> -->
     <div id="productos" class="div_productos"></div>
 <script src="script.js"></script>
 </body>
