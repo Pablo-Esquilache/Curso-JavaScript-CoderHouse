@@ -267,11 +267,11 @@ boton.addEventListener ('submit', (e) => {
     })
 
     base_datos.forEach((producto, indice) => {
-            document.getElementById('prducto${indice}').lastElementChild.addEventListener('click', () => {
-            document.getElementById('producto${indice}').remove()
+            document.getElementById(`producto${indice}`).lastElementChild.addEventListener('click', () => {
+            document.getElementById(`producto${indice}`).remove()
             base_datos.splice(indice, 1)
             localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
-            alert('${producto.producto} eliminado')
+            alert(`${producto.producto} eliminado`)
         })
     })
 })
