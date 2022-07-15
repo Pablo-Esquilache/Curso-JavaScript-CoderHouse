@@ -255,6 +255,8 @@ boton.addEventListener ('submit', (e) => {
 
     div_producto.innerHTML = " "
 
+    formulario_carga.reset()
+
     base_datos.forEach((producto,indice) => {
         div_producto.innerHTML +=   `<div class="div_articulo" id="producto${indice}">
                                         <h2>${producto.producto}</h2>
@@ -262,13 +264,10 @@ boton.addEventListener ('submit', (e) => {
                                         <p>${producto.stock}</p>
                                         <input type="button" value="Eliminar" id="eliminar">
                                     </div>`
-
-    formulario_carga.reset()
     })
 
     base_datos.forEach((producto, indice) => {
-            btn_eliminar = document.getElementById('eliminar')
-            btn_eliminar.addEventListener('click', () => {
+            document.getElementById('prducto${indice}').lastElementChild.addEventListener('click', () => {
             document.getElementById('producto${indice}').remove()
             base_datos.splice(indice, 1)
             localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
