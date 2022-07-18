@@ -219,6 +219,7 @@ boton.addEventListener('submit', (e) => {
         })
         */
 //------------------------------------------------------------------------------------------------------------
+//Segunda Entrge Proyecto Final
 
 class Articulo {
     constructor (producto, precio, stock) {
@@ -241,6 +242,7 @@ const boton = document.getElementById('formulario_carga')
 const div_producto = document.getElementById('productos')
 
 boton.addEventListener ('submit', (e) => {  
+    
     e.preventDefault()      
 
     let nombre_art = document.getElementById('nombre_producto').value;
@@ -275,39 +277,5 @@ boton.addEventListener ('submit', (e) => {
         })
     })
 })
-/*
-const ordenar = document.getElementsByClassName('ordenar');
 
-ordenar.addEventListener('click', () =>{
-    const nueva_base_datos = base_datos.map((user) => {
-        return {
-            Producto: user.producto, 
-            Precio: user.precio, 
-            Stock: user.stock
-        }
-    });
-
-    nueva_base_datos.sort((a,b)=> {
-        if (a.producto > b.producto){
-            return 1;
-        }
-        if (a.producto < b.producto){
-            return -1;
-        }
-        return 0;
-    })
-
-    div_producto.innerHTML = " "    
-
-    for (const producto of nueva_base_datos) {
-        let pantalla = document.createElement("div");
-        pantalla.classList.add('div_articuulo')
-        pantalla.innerHTML =   `<h2>${producto.producto}</h2>
-                                <p>${producto.precio}</p>
-                                <p>${producto.stock}</p>`
-        div_producto.appendChild(pantalla);}
-        
-        formulario_carga.reset()
-    })
-})
-*/
+//--------------------------------------------------------------------------------------------------------------
