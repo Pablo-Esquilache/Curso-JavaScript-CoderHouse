@@ -12,13 +12,8 @@ class Articulo {
 //Declaracion de base de datos
 let base_datos = [];
 
-//Consulta y creacion de localStorage
-if(localStorage.getItem('base_datos_articulos')){
-    base_datos = JSON.parse(localStorage.getItem('base_datos_articulos'))
-}
-else {
-    localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
-}
+//Consulta y creacion de localStorage con operador termario
+let primer_local = (localStorage.getItem('base_datos_articulos')) ? base_datos = JSON.parse(localStorage.getItem('base_datos_articulos')) : localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
 
 //Declaracion de constantes y llamado a nodos del html
 const boton = document.getElementById('formulario_carga')
