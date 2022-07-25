@@ -1,4 +1,4 @@
-//Segunda Entrge Proyecto Final
+//Desafio complementario
 
 //Creamos un clas para la generacion de objetos
 class Articulo {
@@ -47,12 +47,31 @@ boton.addEventListener ('submit', (e) => {
                                     </div>`
     })
 
+    Toastify({
+        text: "Producto incorporado",
+        duration: 3500,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            border: "2px solid black",
+            background: "rgb(97, 97, 156)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+
     base_datos.forEach((producto, indice) => {
             document.getElementById(`producto${indice}`).lastElementChild.addEventListener('click', () => {
             document.getElementById(`producto${indice}`).remove()
             base_datos.splice(indice, 1)
             localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
-            alert(`${producto.producto} eliminado`)
+            Swal.fire({
+                icon: 'success',
+                title: `${producto.producto} eliminado`,
+                // footer: '<a href="">Why do I have this issue?</a>'
+              })
+            
         })
     })
 })
@@ -278,3 +297,8 @@ boton.addEventListener('submit', (e) => {
         })
         */
 //------------------------------------------------------------------------------------------------------------
+/*
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+*/

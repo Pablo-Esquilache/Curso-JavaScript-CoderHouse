@@ -50,3 +50,6 @@ h1 {
 .div_articulo input {
     width: 100%;
 }
+.swal2-container {
+   background-color: rgb(97, 97, 156);
+}
