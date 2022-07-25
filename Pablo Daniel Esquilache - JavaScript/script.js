@@ -1,4 +1,4 @@
-//Desafio complementario
+//Desafio Incorporar Librerias
 
 //Creamos un clas para la generacion de objetos
 class Articulo {
