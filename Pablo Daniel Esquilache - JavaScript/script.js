@@ -37,7 +37,7 @@ boton.addEventListener ('submit', (e) => {
     div_producto.innerHTML = " "
 
     formulario_carga.reset()
-
+//Incorporar el producto en el DOM
     base_datos.forEach((producto,indice) => {
         div_producto.innerHTML +=   `<div class="div_articulo" id="producto${indice}">
                                         <h2>${producto.producto}</h2>
@@ -46,7 +46,7 @@ boton.addEventListener ('submit', (e) => {
                                         <input type="button" value="Eliminar" id="eliminar">
                                     </div>`
     })
-
+//Incorporacion de Tostify
     Toastify({
         text: "Producto incorporado",
         duration: 3500,
@@ -60,22 +60,60 @@ boton.addEventListener ('submit', (e) => {
         },
         onClick: function(){} // Callback after click
       }).showToast();
-
+//Eliminar el producto elegido
     base_datos.forEach((producto, indice) => {
             document.getElementById(`producto${indice}`).lastElementChild.addEventListener('click', () => {
-            document.getElementById(`producto${indice}`).remove()
-            base_datos.splice(indice, 1)
-            localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
-            Swal.fire({
-                icon: 'success',
-                title: `${producto.producto} eliminado`,
-                // footer: '<a href="">Why do I have this issue?</a>'
-              })
-            
+                Swal.fire({
+                    title: 'Está seguro de eliminar el producto?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, seguro',
+                    cancelButtonText: 'No, no quiero'
+                }).then((result) => {
+                    if (result.isConfirmed){
+                    document.getElementById(`producto${indice}`).remove()
+                    base_datos.splice(indice, 1)
+                    localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos))
+//incorporacion del Sweet Alert                    
+                    Swal.fire({
+                        icon: 'success',
+                        title: `${producto.producto} eliminado`,                    
+                    })  
+                }          
+            })
         })
     })
 })
 
+/*const btn_ordenar = document.getElementById('ordenar')
+
+btn_ordenar.addEventListener('click', () =>{
+
+    base_datos_ordenada = [...base_datos]
+
+    base_datos_ordenada.sort((a,b)=> {
+        if (a.seccion > b.seccion){
+            return 1;
+        }
+        if (a.seccion < b.seccion){
+            return -1;
+        }
+        return 0;
+    }
+    )
+
+    div_producto.innerHTML = " "
+
+    base_datos_ordenada.forEach((producto,indice) => {
+        div_producto.innerHTML +=   `<div class="div_articulo" id="producto${indice}">
+                                        <h2>${producto.producto}</h2>
+                                        <p>${producto.precio}</p>
+                                        <p>${producto.stock}</p>
+                                        <input type="button" value="Eliminar" id="eliminar">
+                                    </div>`
+    })
+})
+*/
 //--------------------------------------------------------------------------------------------------------------
 //Tabla de multiplicar con ciclo FOR
 
