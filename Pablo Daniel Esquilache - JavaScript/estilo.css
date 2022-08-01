@@ -11,13 +11,35 @@ body {
 
 h1 {
     text-align: center;}
-
+.formulario {
+    display: flex;
+    flex-direction: row;
+}
 .formulario_carga {
+    width: 85%;
     margin: 15px 15px;
     padding: 15px;
     background-color: rgb(45, 45, 184);
     border-radius: 5px;
     color: white;
+}
+#cotizacion_dolar {
+    width: 15%;
+    margin: 15px 15px;
+    padding: 15px;
+    background-color: rgb(45, 45, 184);
+    border-radius: 5px;
+    color: white;
+}
+#cotizacion_dolar h2 {
+    text-align: center;
+}
+.div_dolar {
+    margin-top: 50px;
+}
+.div_dolar p {
+    margin-top: 20px;
+    font-weight: bold;
 }
 .formulario_carga input {
     width: 100%;
@@ -52,4 +74,7 @@ h1 {
 }
 .swal2-actions {
    background-color: rgb(45, 45, 184);
+}
+#ordenar {
+    margin: 5px 15px;
 }

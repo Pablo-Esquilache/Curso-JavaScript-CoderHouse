@@ -23,8 +23,8 @@ const div_producto = document.getElementById('productos')
 boton.addEventListener ('submit', (e) => {  
     
     e.preventDefault()      
-
-    let nombre_art = document.getElementById('nombre_producto').value;
+//Declarar variables y relacionarlas con nodos del html
+    let nombre_art = document.getElementById('nombre_producto').value.toLowerCase();
     let precio_art = parseFloat(document.getElementById('precio_producto').value);
     let stock_art = parseInt(document.getElementById('stock_producto').value);
 
@@ -41,8 +41,8 @@ boton.addEventListener ('submit', (e) => {
     base_datos.forEach((producto,indice) => {
         div_producto.innerHTML +=   `<div class="div_articulo" id="producto${indice}">
                                         <h2>${producto.producto}</h2>
-                                        <p>${producto.precio}</p>
-                                        <p>${producto.stock}</p>
+                                        <h5>$${producto.precio}</h5>
+                                        <p>Stock: ${producto.stock}</p>
                                         <input type="button" value="Eliminar" id="eliminar">
                                     </div>`
     })
@@ -83,38 +83,92 @@ boton.addEventListener ('submit', (e) => {
             })
         })
     })
-})
-
-/*const btn_ordenar = document.getElementById('ordenar')
-
+//Incorporacion de boton para ordenar alfabeticamente
+//Declaro variable vinculada a un objeto del html
+const btn_ordenar = document.getElementById('ordenar')
+//le incorporo un evento a esa variable
 btn_ordenar.addEventListener('click', () =>{
-
+//Genero una copia de la base de datos original
     base_datos_ordenada = [...base_datos]
-
-    base_datos_ordenada.sort((a,b)=> {
-        if (a.seccion > b.seccion){
+//ordeno de menor a mayor segun el precio
+    base_datos_ordenada.sort((a,b) => {
+        if (a.precio > b.precio){
             return 1;
         }
-        if (a.seccion < b.seccion){
+        if (a.precio < b.precio){
             return -1;
         }
         return 0;
     }
     )
-
+//Vacio el div del html
     div_producto.innerHTML = " "
-
+//Iecorro el array y plasmo nuevamento los productos en el dom
     base_datos_ordenada.forEach((producto,indice) => {
         div_producto.innerHTML +=   `<div class="div_articulo" id="producto${indice}">
                                         <h2>${producto.producto}</h2>
-                                        <p>${producto.precio}</p>
-                                        <p>${producto.stock}</p>
+                                        <h5>$${producto.precio}</h5>
+                                        <p>Stock: ${producto.stock}</p>
                                         <input type="button" value="Eliminar" id="eliminar">
                                     </div>`
     })
+  //Le doy funcion para eliminar productos en el DOM  
+    base_datos_ordenada.forEach((producto, indice) => {
+        document.getElementById(`producto${indice}`).lastElementChild.addEventListener('click', () => {
+            Swal.fire({
+                title: 'Está seguro de eliminar el producto?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, seguro',
+                cancelButtonText: 'No, no quiero'
+            }).then((result) => {
+                if (result.isConfirmed){
+                document.getElementById(`producto${indice}`).remove()
+                base_datos_ordenada.splice(indice, 1)
+                localStorage.setItem('base_datos_articulos', JSON.stringify(base_datos_ordenada))
+//incorporacion del Sweet Alert                    
+                Swal.fire({
+                    icon: 'success',
+                    title: `${producto.producto} eliminado`,                    
+                })  
+            }          
+        })
+    })
 })
-*/
-//--------------------------------------------------------------------------------------------------------------
+})
+})
+//Incorporacion de fetch
+//llamado a un obejto del HTML
+const cotizacion_dolar = document.getElementById('cotizacion_dolar')
+//Sentencia para llamar a la API, tomar los datos que provee y mostrarlos en el DOM
+fetch("https://criptoya.com/api/dolar")
+    .then(respuesta => respuesta.json())
+    .then(({oficial, solidario, blue}) => {
+        cotizacion_dolar.innerHTML = `
+            <h2>COTIZACION DEL DOLAR</h2>
+            <div class="div_dolar">
+            <p>Oficial: $${oficial}</p> 
+            <p>Solidario: $${solidario}</p> 
+            <p>Blue: $${blue}</p>
+            </div>
+        `
+    })
+//Establecer el intervalos de actializacion
+setInterval(() => {
+    fetch("https://criptoya.com/api/dolar")
+    .then(respuesta => respuesta.json())
+    .then(({oficial, solidario, blue}) => {
+        cotizacion_dolar.innerHTML = `
+            <h2>COTIZACION DEL DOLAR</h2>
+            <div class="div_dolar">
+            <p>Oficial: $${oficial}</p> 
+            <p>Solidario: $${solidario}</p> 
+            <p>Blue: $${blue}</p> 
+            </div>
+        `
+    })
+}, 50000)
+//-------------------------------------------------------------------------------------------------------------
 //Tabla de multiplicar con ciclo FOR
 
 /*let numero = parseInt(prompt("Ingrese un numero del 1 al 10 para generar su tabla de multiplicacion"))

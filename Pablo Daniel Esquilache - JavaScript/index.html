@@ -20,10 +20,18 @@
             <input type="number" id="stock_producto" required><br>
             <input type="submit" id="boton_carga" class="btn" value="Cargar datos">
         </form>
+        <div id="cotizacion_dolar"></div>
     </div>
-    <!-- <div class="btn_ordenar">
-        <input type="button" id="ordenar" value="Ordenar Alfabeticamente">
+    <!-- <div>
+        <select class="selecSexo" id="ordenar" name="Sexo">
+            <option value="" disabled> Elige una opcion</option>
+            <option id="menor" value="menor">De menor a mayor</option> 
+            <option id="mayor" value="mayor">De mayor a menor</option>
+        </select>
     </div> -->
+    <div class="btn_ordenar">
+        <input type="button" id="ordenar" value="Ordenar de menor a mayor">
+    </div>
     <div id="productos" class="div_productos"></div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.23/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>    
