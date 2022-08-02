@@ -78,3 +78,10 @@ h1 {
 #ordenar {
     margin: 5px 15px;
 }
+.div_ordenar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 15px;
+}

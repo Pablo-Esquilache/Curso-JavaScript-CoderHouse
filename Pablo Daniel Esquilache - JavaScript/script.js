@@ -88,9 +88,14 @@ boton.addEventListener ('submit', (e) => {
 const btn_ordenar = document.getElementById('ordenar')
 //le incorporo un evento a esa variable
 btn_ordenar.addEventListener('click', () =>{
+    
+    let ordenar_productos = document.getElementById('ordenar_productos').value
+    let menor = document.getElementById('menor').value
+    let mayor = document.getElementById('mayor').value
 //Genero una copia de la base de datos original
     base_datos_ordenada = [...base_datos]
 //ordeno de menor a mayor segun el precio
+if (ordenar_productos === menor) {
     base_datos_ordenada.sort((a,b) => {
         if (a.precio > b.precio){
             return 1;
@@ -101,6 +106,18 @@ btn_ordenar.addEventListener('click', () =>{
         return 0;
     }
     )
+} else if (ordenar_productos === mayor) {
+    base_datos_ordenada.sort((b,a) => {
+        if (a.precio > b.precio){
+            return 1;
+        }
+        if (a.precio < b.precio){
+            return -1;
+        }
+        return 0;
+    }
+    )
+}
 //Vacio el div del html
     div_producto.innerHTML = " "
 //Iecorro el array y plasmo nuevamento los productos en el dom
