@@ -10,11 +10,15 @@ body {
 }
 
 h1 {
-    text-align: center;}
+    text-align: center;
+    margin: 15px;
+}
+
 .formulario {
     display: flex;
     flex-direction: row;
 }
+
 .formulario_carga {
     width: 85%;
     margin: 15px 15px;
@@ -23,6 +27,18 @@ h1 {
     border-radius: 5px;
     color: white;
 }
+
+.formulario_carga input {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+.btn {
+    width: 150px !important;
+    margin-top: 10px;
+}
+
 #cotizacion_dolar {
     width: 15%;
     margin: 15px 15px;
@@ -31,24 +47,18 @@ h1 {
     border-radius: 5px;
     color: white;
 }
+
 #cotizacion_dolar h2 {
     text-align: center;
 }
+
 .div_dolar {
     margin-top: 50px;
 }
+
 .div_dolar p {
     margin-top: 20px;
     font-weight: bold;
-}
-.formulario_carga input {
-    width: 100%;
-    height: 25px;
-    margin-bottom: 5px;
-}
-.btn {
-    width:150px !important ;
-    margin-top: 10px;
 }
 
 .div_productos {
@@ -60,28 +70,61 @@ h1 {
     background-color: rgb(45, 45, 184);
     border-radius: 5px;
 }
+
 .div_articulo {
     border: 1px solid black;
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
 }
+
 .div_articulo p {
     padding: 3px;
 }
+
 .div_articulo input {
     width: 100%;
 }
+
 .swal2-actions {
-   background-color: rgb(45, 45, 184);
+    background-color: rgb(45, 45, 184);
 }
+
 #ordenar {
     margin: 5px 15px;
 }
+
 .div_ordenar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     margin-right: 15px;
+}
+
+.div_formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario_login {
+    width: 200px;
+    margin: 15px 15px;
+    padding: 15px;
+    background-color: rgb(45, 45, 184);
+    border-radius: 5px;
+    color: white;
+}
+
+.formulario_login input {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+.btn2 {
+    width: 200px !important;
+    margin-top: 10px;
+
 }
