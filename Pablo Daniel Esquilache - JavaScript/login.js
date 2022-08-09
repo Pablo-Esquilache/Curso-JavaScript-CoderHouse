@@ -22,7 +22,10 @@ login.addEventListener('click', (e) => {
             if (ok.isConfirmed) { window.location.href = "./shop.html" }
         })
     } else {
-        alert("ingrese codigo valido");
+        Swal.fire({
+            icon: 'warning',
+            title: `Ingrese datos validos`,
+        });
     }
     login.reset()
 })
